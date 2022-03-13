@@ -1,0 +1,265 @@
+html{
+    box-sizing: border-box; /*ставим по умолчанию*/
+}
+*,
+::after,
+*::before{
+    box-sizing: inherit; /*так надо*/
+}
+
+@font-face {
+    font-family: 'Corporate-A-Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url(../fonts/Corporate-A-Bold.woff2) format('woff2'),/*Сначала первый шрифт, если он не поддерживается будет использоваться другой*/
+         url(../fonts/Corporate-A-Bold.woff) format('woff');/*правильное подключение шрифтов*/
+}
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+    background: linear-gradient(180deg, #070A1B 0%, #2A3170 100%); /*общий фон сайта - градиент*/
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: inherit; /*ссылка берет цвет у её родителя*/
+}
+button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+ul{
+    list-style: none;
+}
+.container{
+     max-width: 1220px;/*из-за padding 20px съедаются, поэтому необходимо поставить 1220 максимальную ширину, что бы было 1200*/
+     margin: 0 auto;
+     padding: 0 10px;
+}
+.header{
+    background-color: #070A1B;
+}
+.header__top{
+    display: flex;
+    justify-content: space-between;/*компоненты распределяться по горизонтали по всей длине*/
+    align-items: center;/*выравнивание по центру*/
+    height: 100px;
+}
+.header__logo{
+    margin-left: 115px;
+}
+.list{
+    display: flex;
+}
+.list__item + .list__item{
+    margin-left: 30px;
+}
+.list__link{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all .3s;
+}
+.list__link:hover{
+    background-color: #C1A1D2;
+}
+.header__content{
+    background-image: url(../images/header-bg.png   );
+    min-height: calc(100vh - 100px);/*размещаем картинку на ширину всего монитора за исключением шапки*/
+    background-repeat: no-repeat;/*настройки картинки что бы она автоматически подходила под размер монитора*/
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column; /*позволяет манипулировать блоками*/
+    align-items: center;
+    justify-content: flex-end;/*отправляем их в низ*/
+    position: relative;
+}
+.header__content::before{/*установка значка*/
+    content: "";
+    background-image: url(../images/decor.svg);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: -25px;
+}
+.title{
+    font-family: 'Corporate-A-Bold';
+    margin-bottom: 5px;
+    font-size: 72px;
+    line-height: 120%;  
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.title-descr{
+    font-size: 24px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 50px;
+}
+.footer{
+    background-color: #070A1B;
+}
+.footer__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+}
+.concept{
+    padding-top: 150px;
+    margin-bottom: 150px;
+}
+.concept__inner{
+    max-width: 900px;
+    margin-left: auto;/*ровняем по левому краю контент*/
+}
+.section__title{
+    font-family: 'Corporate-A-Bold';
+    margin-bottom: 25px;/*отступ*/
+    text-transform: uppercase;/*Буквы написанны капсом*/
+    color: #F402A2;
+    font-size: 18px;
+}
+.concept__text{
+    font-size: 24px;
+    margin-bottom: 25px; 
+    line-height: 120%;
+}
+.premier{
+    margin-bottom: 150px;
+}
+.premier__inner{
+    display: flex;
+    gap: 60px;/*расстояние между элементами*/
+}
+.premier__text{
+    margin-bottom: 24px;
+}
+.premier__img{
+    margin-bottom: 20px;
+}
+.premier__btn{/*настройка кнопки*/
+    font-family: 'Corporate-A-Bold';
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    font-style: 18px;
+    line-height: 120%;
+    color: #F402A2;
+    text-align: center;
+    padding: 14px;/*края со всех сторон по 14 что бы не сплюснуло с текстом*/
+    border: 1px solid #F402A2;
+    transition: all .3s;
+}
+.premier__btn:hover{/*изменение цвета для кнопки*/
+    color: #53A1CB;
+    border: 1px solid #53A1CB;
+}
+.video{
+    margin-bottom: 150px;
+}
+.video__img{
+    margin-bottom: 25px;
+}
+.video__btn{
+    font-family: 'Corporate-A-Bold';
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;/*Для того что бы значок и надпись были на одном уровне/выравнивание по нижней линии*/
+    gap: 10px;/*добавляем расстояние между значком и надписью*/
+    width: 100%;
+    font-style: 18px;
+    line-height: 120%;
+    color: #F402A2;
+    padding: 14px;/*края со всех сторон по 14 что бы не сплюснуло с текстом*/
+    border: 1px solid #F402A2;
+    transition: all .3s;
+}
+.video__btn span{
+    padding-top: 2px;
+}
+.video__btn:hover{
+    color: #53A1CB;
+    border: 1px solid #53A1CB;
+}
+.video__btn path{/*Что бы цвет менялся у значка и у текста с одинаковой скоростью*/
+    transition: all .3s;  
+}
+.video__btn:hover path{/*смена цвета у значка кнопки через ее fill(собаственный цвет)*/
+    fill:#53A1CB;
+}
+
+.design__interior{/*делим на 4 части контент*/
+    display: grid;
+    grid-template-columns: 255px 255px auto 330px;/*выставляем ширину коллонок для выравнивания по горизонтали*/
+    grid-template-rows: auto auto;
+    gap: 14px 44px;
+    margin-bottom: 100px;
+}
+.design__cell-one{
+    grid-row: 1/3;
+}
+.design__cell-two{
+    grid-row-end: -1;/*второй блок идет в самый низ*/ /*1 2 3 = -1 -2 -3*/
+    display: flex;/*ровняем текст по нижней линии первой колонки*/
+    align-items: flex-end;
+}
+.design__cell-three{/*ставим последнюю картинку на место в этом блоке*/
+    grid-column-end: -1;
+    grid-row-end: -1;
+    display: flex;/*ровняем картинку по нижней границе первого блока*/
+    align-items: flex-end;
+}
+.design__cell-text{
+    margin-bottom: 15px;
+}
+.design-slider__item{
+    margin: 0 30px;
+}
+.slick-track{/*Делаем так что картинки у сладера не начинаются с самого начала, а немного обрезанными остаются*/
+    margin-left: -30px;
+}
+.design-slider{
+    padding-bottom: 25px;
+}
+.arrow{
+    position: absolute;
+    z-index: 10px;/*Что бы стрелки не перекрывались*/
+    cursor: pointer;
+    bottom: 0;
+    left: 50%;     
+}
+.arrow-left{
+    transform: translateX(-80px);/*позиционирование стрелок относительно центра и друг друга*/
+}
+.arrow-right{
+    transform: translateX(30px);
+}
+.design__box{
+    max-width: 590px;
+    margin: 150px auto;
+    padding: 0px 10px;
+    display: flex;
+    gap: 60px;
+}
+.design__box-column{
+    width: 255px;
+}
+.design__box-text{
+    margin-bottom: 15px; 
+}
+.design__img{
+    max-width: 100%;
+    display: block;
+    object-fit: cover;/*аналог background size cover*/
+}
